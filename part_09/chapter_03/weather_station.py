@@ -28,7 +28,7 @@ class WeatherStation:
         return self.__observations[-1] if self.number_of_observations() > 0 else ""
 
     def __str__(self):
-        return f"{self.name}, {self.number_of_observations()} observation{'s'*(self.number_of_observations()>1)}"
+        return f"{self.name}, {self.number_of_observations()} observation{'s' * (self.number_of_observations() != 1)}"
 
 
 if __name__ == "__main__":
