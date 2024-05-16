@@ -1,8 +1,19 @@
 class WeatherStation:
 
     def __init__(self, name: str) -> None:
-        self.name = name
+        self.__name = name
         self.__observations = []
+
+    @property
+    def name(self):
+        return self.__name
+
+    @name.setter
+    def name(self, name):
+        if name != "":
+            self.__name = name
+        else:
+            raise ValueError("Name must not be an empty string.")
 
     def add_observation(self, observation: str) -> None:
         if observation != "":
@@ -31,4 +42,14 @@ if __name__ == "__main__":
     print(station.latest_observation())
 
     print(station.number_of_observations())
+    print(station)
+
+    print()
+
+    station = WeatherStation("Portland")
+    try:
+        station.name = ""
+    except Exception as e:
+        print(e)
+    print(station.name)
     print(station)
